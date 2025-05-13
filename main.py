@@ -15,7 +15,7 @@ class SalaryEstimator:
     """Estimates salary ranges based on job titles and web scraping."""
 
     def __init__(self):
-        self.salary_data = {}  # Cache salary data (job title: range)
+        self.salary_data = {}  
 
     def estimate_salary(self, job_title):
         if job_title not in self.salary_data:
@@ -127,7 +127,7 @@ class Api:
     def plot_demand_graph(self, job_data):
         if job_data:
             job_titles = [job['job_title'] for job in job_data][:8]
-            job_openings_high = [10000, 8000, 12000, 6000, 9000, 4000, 7000, 9000]  # Placeholder data
+            job_openings_high = [10000, 8000, 12000, 6000, 9000, 4000, 7000, 9000]  
 
             plt.figure(figsize=(10, 6))
             plt.plot(job_titles, job_openings_high, marker='o', color='blue', linestyle='-',
@@ -258,7 +258,7 @@ class JobSearchApp:
 
 class TestJobSearchApp(unittest.TestCase):
     def setUp(self):
-        # Initialize Tkinter without opening a window
+       
         self.root = tk.Tk()
         self.root.withdraw()
         self.app = JobSearchApp(self.root)
@@ -298,7 +298,6 @@ class TestJobSearchApp(unittest.TestCase):
         self.app.store_jobs = [(0, "Software Engineer")]
         self.app.selection_entry.insert(tk.END, "1")
 
-        # Mock messagebox to prevent actual popup
         messagebox.showinfo = MagicMock()
 
         self.app.view_details()
